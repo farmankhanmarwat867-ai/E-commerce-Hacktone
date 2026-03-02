@@ -357,9 +357,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Agar user already login hai → direct home
   const currentUser = JSON.parse(localStorage.getItem("currentUser"));
-  if (currentUser && loginForm) {
-    window.location.href = "index.html";
-  }
+  // if (currentUser && loginForm) {
+  //   window.location.href = "index.html";
+  // }
 
   if (loginForm) {
     loginForm.addEventListener("submit", (e) => {
@@ -542,7 +542,7 @@ if (loginForm) {
       localStorage.setItem(USER_KEY, JSON.stringify({ email }));
       message.style.color = "green";
       message.textContent = "Login successful! Redirecting...";
-      setTimeout(() => (window.location.href = "index.html"), 1000);
+      setTimeout(() => (window.location.href = "index.html"), 10000);
     } else {
       message.textContent = "Invalid email or password";
     }
