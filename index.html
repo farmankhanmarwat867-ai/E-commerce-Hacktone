@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SwiftShop - Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="script.js" defer></script>
+  </head>
+  <body class="bg-gray-500 text-gray-800 transition-colors duration-300">
+    <!-- Navbar -->
+    <nav class="bg-yellow-600 shadow-md">
+      <div
+        class="max-w-7xl mx-auto px-6 py-4 flex flex-col md:flex-row items-center justify-between gap-4 md:gap-0"
+      >
+        <div class="text-3xl font-bold text-blue-600">MyShop</div>
+
+        <!-- Search / Filter / Sort -->
+        <div class="flex flex-col md:flex-row gap-2 w-full md:w-2/3">
+          <input
+            id="searchInput"
+            type="text"
+            placeholder="Search products..."
+            class="w-full md:w-1/2 px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+          <select
+            id="categoryFilter"
+            class="px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          >
+            <option value="All">All Categories</option>
+            <option value="Clothing">Clothing</option>
+            <option value="Shoes">Shoes</option>
+            <option value="Accessories">Accessories</option>
+          </select>
+          <select
+            id="priceSort"
+            class="px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          >
+            <option value="none">Sort by Price</option>
+            <option value="low">Low → High</option>
+            <option value="high">High → Low</option>
+          </select>
+        </div>
+
+        <!-- Links & Icons -->
+        <div class="flex gap-4 items-center mt-2 md:mt-0">
+          <a href="cart.html" class="relative hover:text-blue-600 transition">
+            🛒
+            <span
+              id="cartBadge"
+              class="absolute -top-2 -right-3 bg-red-500 text-white text-xs rounded-full px-1"
+              >0</span
+            >
+          </a>
+          <a
+            href="wishlist.html"
+            class="relative hover:text-pink-600 transition"
+          >
+            ❤️
+            <span
+              id="wishlistBadge"
+              class="absolute -top-2 -right-3 bg-red-500 text-white text-xs rounded-full px-1"
+              >0</span
+            >
+          </a>
+          <button
+            id="darkModeToggle"
+            class="bg-blue-600 text-white px-3 py-1 rounded-lg hover:bg-blue-700 transition"
+            onclick=""
+          >
+            🌙
+          </button>
+          <a
+            href="signup.html"
+            class="bg-gray-200 text-gray-800 px-4 py-3 rounded-lg hover:bg-blue-300 transition"
+            >SignUp</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Slider -->
+    <section
+      id="hero-slider"
+      class="relative overflow-hidden mt-6 h-64 md:h-96 max-w-7xl mx-auto rounded-xl shadow-lg"
+    >
+      <img
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT50ntNc3fwN1LNr337Ym26-npsNvCGzH5INg&s"
+        class="absolute inset-0 w-full h-full object-cover rounded-xl"
+        alt="Slide 1"
+      />
+      <img
+        src="https://image.slidesdocs.com/responsive-images/background/natural-forest-wonders-powerpoint-background_d4f9743c30__960_540.jpg"
+        class="absolute inset-0 w-full h-full object-cover hidden rounded-xl"
+        alt="Slide 2"
+      />
+      <img
+        src="https://www.pixedelic.com/plugins/camera/development/camera_1.0.6/images/slides/bridge.jpg?1767398400023"
+        class="absolute inset-0 w-full h-full object-cover hidden rounded-xl"
+        alt="Slide 3"
+      />
+      <button
+        id="prevSlide"
+        class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white bg-opacity-70 text-gray-800 px-4 py-2 rounded-lg hover:bg-opacity-100 transition"
+      >
+        Prev
+      </button>
+      <button
+        id="nextSlide"
+        class="absolute top-1/2 right-4 transform -translate-y-1/2 bg-white bg-opacity-70 text-gray-800 px-4 py-2 rounded-lg hover:bg-opacity-100 transition"
+      >
+        Next
+      </button>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="max-w-7xl mx-auto px-6 py-12">
+      <h3 class="text-3xl font-bold mb-8 text-center text-gray-100">
+        Featured Products
+      </h3>
+
+      <!-- Product Grid -->
+      <div
+        id="productGrid"
+        class="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
+      ></div>
+
+      <!-- Pagination (JS will create this) -->
+      <div id="pagination" class="flex justify-center mt-8 gap-2"></div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black shadow-inner text-center py-6 mt-12 text-white">
+      &copy; 2026 MyShop.| @Created by Farman Khan
+    </footer>
+  </body>
+</html>
