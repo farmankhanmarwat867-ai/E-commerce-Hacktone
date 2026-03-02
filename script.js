@@ -341,9 +341,9 @@ document.addEventListener("DOMContentLoaded", () => {
       message.classList.add("text-green-500");
 
       // Redirect after 1.5s
-      setTimeout(() => {
-        window.location.href = "login.html";
-      }, 1500);
+      // setTimeout(() => {
+      //   window.location.href = "login.html";
+      // }, 1500);
     });
   }
 });
