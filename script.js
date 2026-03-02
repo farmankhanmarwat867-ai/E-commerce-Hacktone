@@ -357,9 +357,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Agar user already login hai → direct home
   const currentUser = JSON.parse(localStorage.getItem("currentUser"));
-  // if (currentUser && loginForm) {
-  //   window.location.href = "index.html";
-  // }
+
+  // get current page name
+  const isLoginPage = window.location.pathname.includes("login.html");
+  const isSignupPage = window.location.pathname.includes("signup.html");
+
+  if (!currentUser && !isLoginPage && !isSignupPage) {
+    window.location.href = "login.html";
+  }
 
   if (loginForm) {
     loginForm.addEventListener("submit", (e) => {
@@ -410,9 +415,13 @@ document.addEventListener("DOMContentLoaded", () => {
   // PROTECT PAGE (LOGIN REQUIRED)
   // =========================
   const currentUser = JSON.parse(localStorage.getItem("currentUser"));
-  if (!currentUser) {
+
+  // get current page name
+  const isLoginPage = window.location.pathname.includes("login.html");
+  const isSignupPage = window.location.pathname.includes("signup.html");
+
+  if (!currentUser && !isLoginPage && !isSignupPage) {
     window.location.href = "login.html";
-    return;
   }
 
   // =========================
@@ -503,7 +512,6 @@ document.addEventListener("DOMContentLoaded", () => {
 ========================= */
 const CART_KEY = "swiftshop_cart";
 const WISHLIST_KEY = "swiftshop_wishlist";
-const USER_KEY = "swiftshop_user";
 
 /* =========================
    HELPERS
@@ -529,25 +537,25 @@ function saveWishlist(list) {
 ========================= */
 const loginForm = document.getElementById("loginForm");
 
-if (loginForm) {
-  loginForm.addEventListener("submit", (e) => {
-    e.preventDefault();
+// if (loginForm) {
+//   loginForm.addEventListener("submit", (e) => {
+//     e.preventDefault();
 
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
-    const message = document.getElementById("message");
+//     const email = document.getElementById("email").value;
+//     const password = document.getElementById("password").value;
+//     const message = document.getElementById("message");
 
-    // dummy auth
-    if (email === "admin@gmail.com" && password === "123456") {
-      localStorage.setItem(USER_KEY, JSON.stringify({ email }));
-      message.style.color = "green";
-      message.textContent = "Login successful! Redirecting...";
-      setTimeout(() => (window.location.href = "index.html"), 10000);
-    } else {
-      message.textContent = "Invalid email or password";
-    }
-  });
-}
+//     // dummy auth
+//     if (email === "admin@gmail.com" && password === "123456") {
+//       localStorage.setItem(USER_KEY, JSON.stringify({ email }));
+//       message.style.color = "green";
+//       message.textContent = "Login successful! Redirecting...";
+//       setTimeout(() => (window.location.href = "index.html"), 10000);
+//     } else {
+//       message.textContent = "Invalid email or password";
+//     }
+//   });
+// }
 
 /* =========================
    CART PAGE
